@@ -13,7 +13,7 @@ function SacarResto()
 
 	dividendo = parseInt(dividendo);
 	divisor = parseInt(divisor);
-	resultado = dividendo/divisor;
+	resultado = dividendo%divisor;
 
 	alert(resultado);
 	
