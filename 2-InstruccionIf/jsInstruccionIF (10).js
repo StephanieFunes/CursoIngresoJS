@@ -30,21 +30,17 @@
 
 	random = Math.floor(Math.random() * 10) + 1;
 
-	if(random >8)
-		{
-			alert(random + " = Excelente");
-		}
-
+	if(random > 8)
+	{
+		alert(random + " = Excelente");
+	}
+	else if(random < 4)
+	{
+		alert(random + " = Vamos, la próxima se puede");
+	}
 	else
-		{
-			if(random < 4)
-			{
-				alert(random + " = Vamos, la próxima se puede");
-			}
-			else
-			{
-				alert(random + " = Aprobó");
-			}
- 
-		}
+	{
+		alert(random + " = Aprobó");
+	}
+	
 }
