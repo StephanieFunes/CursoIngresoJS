@@ -1,9 +1,73 @@
 
 function Mostrar()
 {
+	var contador = 0;
+	var numero;
+	var respuesta = 'si';
+	var acumuladorNegativos = 0;
+	var acumuladorPositivos = 0;
+	var cantidadNegativos = 0;
+	var cantidadPositivos = 0;
+	var cantidadCeros = 0;
+	var cantidadPares = 0;
+	var promedioPositivos;
+	var promedioNegativos;
+	var diferencia;
+
+	while(respuesta == "si")
+	{
+		numero = prompt("Ingrese un número");
+		numero = parseInt(numero);
+		respuesta = prompt("Desea continuar?");
+		contador++;
+
+		if (numero < 0)
+		{
+			acumuladorNegativos = acumuladorNegativos + numero;
+			cantidadNegativos = cantidadNegativos + 1; 
+
+
+		}
+		
+		if (numero == 0)
+		{
+			cantidadCeros = cantidadCeros + 1;
+
+		}
+
+		if(numero % 2 == 0)
+		{
+			cantidadPares = cantidadPares + 1;	
+		}
+
+		if(numero > 0)
+		{
+			acumuladorPositivos = acumuladorPositivos + numero;
+			cantidadPositivos = cantidadPositivos + 1;
+			
+		}
+
+
+	}
+
+	promedioPositivos = acumuladorPositivos / cantidadPositivos;
+	promedioNegativos = acumuladorNegativos / cantidadNegativos;
+	diferencia = acumuladorPositivos + acumuladorNegativos;
+
+	document.write("La suma de los negativos es " + acumuladorNegativos + "<br>");
+	document.write("La suma de los positivos es " + acumuladorPositivos + "<br>");
+	document.write("La cantidad de negativos es " + cantidadNegativos + "<br>");
+	document.write("La cantidad de positivos es " + cantidadPositivos + "<br>");
+	document.write("La cantidad de ceros es " + cantidadCeros + "<br>");
+	document.write("La cantidad de números pares es " + cantidadPares + "<br>");
+	document.write("El promedio de los positivos es " + promedioPositivos + "<br>");
+	document.write("El promedio de los negativos es "+ promedioNegativos + "<br>");
+	document.write("La diferencia entre los números positivos y negativos es " + diferencia + "<br>");
+
+
 	//Iteración hasta que el usuario quiera
 
-	var respuesta = "si";
+	/*var respuesta = "si";
 	var nota;
 	var contador;
 	var sumadorNota = 0;
@@ -64,7 +128,7 @@ function Mostrar()
 		6-Promedio de los hombres
 		7-Promedio de las mujeres
 		8-Porcentaje de aprobados y desaprobados.
-		9-Sexo y nombre de la primera persona que se saque 10.*/
+		9-Sexo y nombre de la primera persona que se saque 10.
 
 
 		respuesta = prompt("Ingrese si para continuar");
@@ -72,6 +136,6 @@ function Mostrar()
 	
 	promedioNota = sumadorNota / contador;
 
-	document.write(promedioNota);
+	document.write(promedioNota);*/
 
 }//FIN DE LA FUNCIÓN
