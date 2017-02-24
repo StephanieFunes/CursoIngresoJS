@@ -1,6 +1,5 @@
 function Mostrar()
 {
-
 	var contador= 0;
 	var numero;
 	var max;
@@ -10,6 +9,7 @@ function Mostrar()
 	var respuesta='si';
 
 	while(respuesta!='no')
+
 	{		
 		numero = prompt("Ingrese un número");
 		numero = parseInt(numero);
@@ -36,7 +36,7 @@ function Mostrar()
  			}
 
 		}
-	
+		contador ++;
 	}
 
 	document.getElementById('maximo').value = max;
