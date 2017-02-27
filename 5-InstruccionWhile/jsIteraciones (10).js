@@ -89,6 +89,13 @@ function Mostrar()
 	var acumuladorHombresAprobadosTotal = 0;
 	var HombresDesaprobados = 0;
 	var mujeresDesaprobadas = 0;
+	var nombreMujerConMejorNota;
+	var mujerMejorNota;
+	var nombreHombreMejorNota;
+	var hombreMejorNota;
+	var primerDiez;
+	var sexoNotaDiez;
+	var huboDiez = false;
 
 	while(respuesta == "si")
 	{
@@ -131,7 +138,7 @@ function Mostrar()
 		{
 			masviejo = nombre;
 			edadMasViejo = edad;
-			
+
 		}
 		else
 		{
@@ -140,6 +147,7 @@ function Mostrar()
 				masviejo = nombre;
 				edadMasViejo = edad;
 			}
+
 		}
 
 		if(sexo == "f") 
@@ -160,7 +168,11 @@ function Mostrar()
 
 			}
 
-
+			if(acumuladorMujeres == 0 || nota > mujerMejorNota)
+			{
+				nombreMujerConMejorNota = nombre;
+				mujerMejorNota = nota;
+			}
 
 			acumuladorMujeres = acumuladorMujeres + 1;
 			sumaNotasMujeres = sumaNotasMujeres + nota;
@@ -187,9 +199,20 @@ function Mostrar()
 			acumuladorHombres = acumuladorHombres + 1;
 			sumaNotasHombres = sumaNotasHombres + nota;
 
+			if (acumuladorHombres == 0 || nota > hombreMejorNota)
+			{
+				nombreHombreMejorNota = nombre;
+				hombreMejorNota = nota;
+			}
 		}
 
-
+		if (nota == 10 && !huboDiez)
+		{
+			primerDiez = nombre;
+			sexoNotaDiez = sexo;
+			huboDiez = true;
+		}
+			
 		/*1- Cantidad de mujeres aprobadas.
 		2- Cantidad de hombres mayores a 25 aprobados.
 		3- Cantidad de mujeres menores a 20 años aprobados.
@@ -220,6 +243,7 @@ function Mostrar()
 	document.write("El promedio de nota de las mujeres es " + promedioMujeres + "<br>");
 	document.write("El porcentaje de aprobados es " + porcentajeAprobados + "<br>");
 	document.write("El porcentaje de desaprobados es " + porcentajeDesaprobados + "<br>");
-
+	document.write("El nombre de la mujer con mejor nota es " + nombreMujerConMejorNota + "<br>");
+	document.write("La primer persona que se sacó 10 fue " + primerDiez + " y su sexo es " + sexoNotaDiez);
 
 }//FIN DE LA FUNCIÓN
