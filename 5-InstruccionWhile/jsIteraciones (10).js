@@ -1,7 +1,7 @@
 
 function Mostrar()
 {
-	var contador = 0;
+	/*var contador = 0;
 	var numero;
 	var respuesta = 'si';
 	var acumuladorNegativos = 0;
@@ -64,12 +64,12 @@ function Mostrar()
 	document.write("El promedio de los negativos es "+ promedioNegativos + "<br>");
 	document.write("La diferencia entre los números positivos y negativos es " + diferencia + "<br>");
 
-
+*/
 	//Iteración hasta que el usuario quiera
 
-	/*var respuesta = "si";
+	var respuesta = "si";
 	var nota;
-	var contador;
+	var contador = 0;
 	var sumadorNota = 0;
 	var promedioNota;
 	var edad;
@@ -77,45 +77,115 @@ function Mostrar()
 	var sexo;
 	var masviejo;
 	var edadMasViejo;
+	var acumuladorMujeresAprobadas = 0;
+	var acumuladorHombresAprobados = 0;
+	var acumuladorMujeresMenoresAVeinte = 0;
+	var promedioHombres;
+	var promedioMujeres;
+	var acumuladorHombres = 0;
+	var sumaNotasHombres = 0;
+	var acumuladorMujeres = 0;
+	var sumaNotasMujeres = 0;
+	var acumuladorHombresAprobadosTotal = 0;
+	var HombresDesaprobados = 0;
+	var mujeresDesaprobadas = 0;
 
 	while(respuesta == "si")
 	{
 		
-		contador++;
 		nota = prompt("Por favor ingrese su nota");
 		nota = parseInt(nota);
 
-			while(nota < 0 || nota > 10)
-			{
-				nota = prompt("Por favor ingrese su nota");
-				nota = parseInt(nota);
-			}
+		while(nota < 0 || nota > 10)
+		{
+			nota = prompt("Por favor ingrese su nota");
+			nota = parseInt(nota);
+		}
 
 		sumadorNota = sumadorNota + nota;
 
 		edad = prompt ("Ingrese su edad");
 		edad = parseInt(edad);
 
+		while(edad < 0 && edad > 100)
+		{
+			edad = prompt("Error.Ingrese una edad válida");
+
+		}
+
 		nombre = prompt ("Ingrese su nombre");
 		
 		sexo = prompt ("Ingrese su sexo");
+
+		while (sexo != "f" && sexo != "m")
+		
+		{
+			sexo = prompt("Inválido. Ingrese f para femenino o m para masculino");
+		}
 		
 		//Acá termnó la carga y validación de datos
 
 		//Comenzamos a hacer las operaciones necesarias
 
-		if(contador)
+		if(contador == 0)
 		{
 			masviejo = nombre;
 			edadMasViejo = edad;
+			
 		}
 		else
 		{
 			if (edad>edadMasViejo)
 			{
 				masviejo = nombre;
-				edadMasViejo=edad;
+				edadMasViejo = edad;
 			}
+		}
+
+		if(sexo == "f") 
+		{
+			if (nota >= 4)
+			{
+				acumuladorMujeresAprobadas = acumuladorMujeresAprobadas + 1;
+			}
+
+			if (nota < 4)
+			{
+				mujeresDesaprobadas = mujeresDesaprobadas + 1;
+			}			
+			
+			if (edad < 20 && nota >= 4)
+			{
+				acumuladorMujeresMenoresAVeinte = acumuladorMujeresMenoresAVeinte + 1;
+
+			}
+
+
+
+			acumuladorMujeres = acumuladorMujeres + 1;
+			sumaNotasMujeres = sumaNotasMujeres + nota;
+	
+		}
+
+		if (sexo == "m")
+		{
+			if (nota >= 4)
+			{
+				acumuladorHombresAprobadosTotal = acumuladorHombresAprobadosTotal + 1;
+			}
+
+			if (nota < 4)
+			{
+				HombresDesaprobados = HombresDesaprobados + 1;
+			}
+
+			if(edad > 25 && nota >= 4)
+			{
+					acumuladorHombresAprobados = acumuladorHombresAprobados + 1;
+			}
+
+			acumuladorHombres = acumuladorHombres + 1;
+			sumaNotasHombres = sumaNotasHombres + nota;
 
 		}
 
@@ -123,19 +193,33 @@ function Mostrar()
 		/*1- Cantidad de mujeres aprobadas.
 		2- Cantidad de hombres mayores a 25 aprobados.
 		3- Cantidad de mujeres menores a 20 años aprobados.
-		4- Nombre de la mujer con mejro nota.
+		4- Nombre de la mujer con mejor nota.
 		5-Nombre del hombre con mejor nota.
 		6-Promedio de los hombres
 		7-Promedio de las mujeres
 		8-Porcentaje de aprobados y desaprobados.
-		9-Sexo y nombre de la primera persona que se saque 10.
-
+		9-Sexo y nombre de la primera persona que se saque 10.*/
 
 		respuesta = prompt("Ingrese si para continuar");
+		contador ++;
 	}
 	
 	promedioNota = sumadorNota / contador;
+	promedioHombres = sumaNotasHombres / acumuladorHombres;
+	promedioMujeres =  sumaNotasMujeres / acumuladorMujeres;
+	var porcentajeAprobados = (acumuladorHombresAprobadosTotal + acumuladorMujeresAprobadas) / (acumuladorHombres + acumuladorMujeres);
+	var porcentajeDesaprobados = (HombresDesaprobados + mujeresDesaprobadas) / (acumuladorMujeres + acumuladorHombres);
 
-	document.write(promedioNota);*/
+
+	document.write("El promedio de notas es " + promedioNota + "<br>");
+	document.write("La edad de la persona más vieja es " + edadMasViejo + "<br>");
+	document.write("La cantidad de mujeres aprobadas es " + acumuladorMujeresAprobadas + "<br>");
+	document.write("La cantidad de hombres mayores a 25 años aprobados es " + acumuladorHombresAprobados + "<br>");
+	document.write("La cantidad de mujeres menores a 20 años aprobadas es " + acumuladorMujeresMenoresAVeinte + "<br>");
+	document.write("El promedio de nota de los hombres es " + promedioHombres + "<br>");
+	document.write("El promedio de nota de las mujeres es " + promedioMujeres + "<br>");
+	document.write("El porcentaje de aprobados es " + porcentajeAprobados + "<br>");
+	document.write("El porcentaje de desaprobados es " + porcentajeDesaprobados + "<br>");
+
 
 }//FIN DE LA FUNCIÓN
