@@ -207,4 +207,62 @@ function Nivel3Ej7() {
 
 function Nivel4Ej8() {
 	
+	var contador = 0;
+	var numero;
+	var respuesta = "si";
+	var contadorPares = 0;
+	var promedio;
+	var sumaNumeros = 0;
+	var maximo;
+	var minimo;
+
+	while(respuesta == "si")
+	{
+		numero = prompt("Ingrese un número positivo");
+		numero = parseInt(numero);
+
+		while (numero < 0)
+		{
+			numero = prompt("Error.Ingrese un número positivo");
+			numero = parseInt(numero);
+
+		}
+
+		if(numero % 2 == 0)
+		{
+			contadorPares = contadorPares + 1;
+
+		}
+
+		if (contador == 0)
+		{
+			maximo = numero;
+			minimo = numero;
+		}
+		else
+		{
+			if(numero > maximo)
+			{
+				maximo = numero;
+			}
+			if (numero < minimo)
+			{
+				minimo = numero;
+			}
+
+		}
+		
+		respuesta = prompt("Desea continuar?");
+		sumaNumeros = sumaNumeros + numero;
+		contador ++;
+	}
+
+	
+	promedio = sumaNumeros / contador;
+
+	document.write("La cantidad de números pares es " + contadorPares + "<br>");
+	document.write("El promedio de todos los números ingresados es " + promedio + "<br>");
+	document.write("La suma de todos los números es " + sumaNumeros + "<br>");
+	document.write("El número mínimo ingresado es " + minimo + "<br>");
+	document.write("El número máximo ingresado es " + maximo + "<br>");
 }
