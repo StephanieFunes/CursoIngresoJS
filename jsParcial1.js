@@ -1,13 +1,23 @@
 function Nivel1Ej1() {
 
 	var base;
+	var superficie;
+
+	base = document.getElementById('baseDelCuadrado').value;
+	base = parseInt(base);
+
+	superficie = base * base;
+
+	alert("La superficie del cuadrado es " + superficie);
+
+	/*var base;
 	var perimetro;
 
 	base = document.getElementById('baseDelCuadrado').value ;
 	base = parseInt(base);
 	perimetro = 4 * base;
 
-	alert("El perímetro es " + perimetro);
+	alert("El perímetro es " + perimetro);*/
 
 }
 
@@ -16,17 +26,44 @@ function Nivel1Ej2() {
 	var importe;
 	var importeFinal;
 
+	importe = prompt("Ingrese un importe");
+	importe = parseInt (importe);
+
+	importeFinal = importe * 0.75;
+	alert ("El importe final es " + importeFinal);
+
+	/*var importe;
+	var importeFinal;
+
 	importe = parseInt(importe);
 	importe = prompt ("Introduzca el importe de un producto");
 
 	importeFinal = importe * 1.21;
 
-	alert("El importe final es " + importeFinal);
+	alert("El importe final es " + importeFinal);*/
 }
 
 function Nivel1Ej3() {
 
-	var largo;
+	var precioUno;
+	var precioDos;
+	var precioTres;
+	var suma;
+	var promedio;
+
+	precioUno = document.getElementById('precioUno').value;
+	precioUno = parseInt(precioUno);
+	precioDos = document.getElementById('precioDos').value;
+	precioDos = parseInt(precioDos);
+	precioTres = document.getElementById('precioTres').value;
+	precioTres = parseInt(precioTres);
+
+	suma = precioUno + precioDos + precioTres;
+	promedio = suma / 3;
+
+	alert("La suma de los precios es " + suma + " y el promedio es " + promedio);
+
+	/*var largo;
 	var ancho;
 	var perimetro;
 
@@ -38,13 +75,38 @@ function Nivel1Ej3() {
 
 	perimetro = (2 * ancho + 2 * largo) * 3;
 
-	alert("Se necesitan " + perimetro + "metros");
+	alert("Se necesitan " + perimetro + "metros");*/
 		
 }
 
 function Nivel2Ej4() {
 
 	var numeroUno;
+	var numeroDos;
+	var suma;
+
+	numeroUno = prompt("Ingrese un número");
+	numeroUno = parseInt(numeroUno);
+
+	numeroDos = prompt("Ingrese un número");
+	numeroDos = parseInt(numeroDos);
+
+	suma = numeroUno + numeroDos;
+
+	if(suma > 0)
+	{
+		alert("La suma da un número positivo");
+	}
+	if (suma < 0)
+	{
+		alert("La suma da un número negativo");
+	}
+	if(suma == 0)
+	{
+		alert ("La suma da 0");
+	}
+
+	/*var numeroUno;
 	var numeroDos;
 	var resultado;
 	
@@ -69,13 +131,33 @@ function Nivel2Ej4() {
 		resultado = numeroUno + numeroDos;
 	}
 
-	document.write("El resultado es: " + resultado);
+	document.write("El resultado es: " + resultado);*/
 	
 }
 
 function Nivel2Ej5() {
 	
-	var dia;
+	var mes;
+
+	mes = prompt ("Ingrese un mes");
+
+	switch(mes)
+	{
+		case "diciembre":
+		alert("Se vienen las fiestas!!");
+		break;
+
+		case "enero":
+		alert("Comienza el año");
+		break;
+
+		default:
+		alert("No es diciembre ni enero");
+		break;
+
+	}
+
+	/*var dia;
 
 	dia = prompt("Ingrese un día de la semana")
 	{
@@ -98,13 +180,56 @@ function Nivel2Ej5() {
 
 		}
 
-	}
+	}*/
 
 }
 
 function Nivel3Ej6() {
-	
+
+	var peso;
 	var contador = 0;
+	var maximo;
+	var minimo;
+
+	
+
+	while(contador < 3)
+	{
+		peso = prompt ("Ingrese el peso de un contenedor");
+		peso = parseInt(peso);
+
+		while(peso < 0)
+		{
+			peso = prompt("Error. Ingrese un número mayor a 0");
+			peso = parseInt(peso);
+		}
+
+		if(contador == 0)
+		{
+			maximo = peso;
+			minimo = peso;
+		}
+
+		else
+		{
+			if(peso > maximo)
+			{
+				maximo = peso;
+			}
+			if(peso < minimo)
+			{
+				minimo = peso;
+			}
+
+		}
+
+		contador ++;
+		
+	}
+
+	alert("El peso mínimo ingresado es " + minimo + " y el peso máximo ingresado es " + maximo);
+	
+	/*var contador = 0;
 	var importe;
 	var mayorImporte;
 	var menorImporte;
@@ -147,13 +272,61 @@ function Nivel3Ej6() {
 	} 
 
 	document.write("El mayor importe es " + mayorImporte + "<br>");
-	document.write("El menor importe es " + menorImporte + "<br>");
+	document.write("El menor importe es " + menorImporte + "<br>");*/
 
 }
 
 function Nivel3Ej7() {
 
-	var nota;
+	var edad;
+	var sexo;
+	var contador = 0;
+	var promedio;
+	var suma = 0;
+	var minimo;
+	var hombresMayoresAVeinte = 0;
+	
+	while(contador < 5)
+	{
+		edad = prompt("Ingrese su edad");
+		edad = parseInt(edad);
+		
+		while(!(edad > 0 && edad < 100))
+		{
+			edad = prompt("Error. Ingrese una edad válida");
+			edad = parseInt(edad);
+
+		}
+
+		sexo = prompt("Ingrese su sexo");
+
+		while(!(sexo == "f" || sexo == "m"))
+		{
+			sexo = prompt("Error. Ingrese m para masculino o f para femenino")
+
+		}
+
+		if(contador == 0 || edad < minimo)
+		{
+			minimo = edad;		
+		}
+
+		if(sexo == "m" && edad >= 20)
+		{
+			hombresMayoresAVeinte = hombresMayoresAVeinte + 1;
+
+		}
+
+		suma = suma + edad;
+		contador ++;
+
+	}
+
+	promedio = suma / 3;
+
+	alert("El promedio es " + promedio + "\nLa edad más baja es " + minimo + "\nLa cantidad de hombres mayor a veinte años es " + hombresMayoresAVeinte);
+
+	/*var nota;
 	var sexo;
 	var contador = 0;
 	var sumaNotas = 0;
@@ -200,7 +373,7 @@ function Nivel3Ej7() {
 	
 	promedioNotas = sumaNotas / contador;
 
-	alert ("El promedio de notas es " + promedioNotas + "\nLa menor nota es " + menorNota + "\nLos hombres con nota mayor o igual a 6 son " + hombresAprobados);
+	alert ("El promedio de notas es " + promedioNotas + "\nLa menor nota es " + menorNota + "\nLos hombres con nota mayor o igual a 6 son " + hombresAprobados);*/
 
 
 }
